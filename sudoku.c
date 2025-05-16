@@ -144,8 +144,17 @@ Node* DFS(Node* initial, int* cont){
         free(aux);
       }
       return siguiente;
-      
     }
+    List* nodos_adjuntos = get_adj_nodes(siguiente);
+    Node* nodo_adjunto = first(nodos_adjuntos);
+    while (nodo_adjunto != NULL)
+    {
+      pushFront(lista, nodo_adjunto);
+      nodo_adjunto = next(nodos_adjuntos);
+      /* code */
+    }
+    
+
   }
   
   return NULL;
