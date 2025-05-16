@@ -126,6 +126,28 @@ int is_final(Node* n)
 }
 
 Node* DFS(Node* initial, int* cont){
+  List* lista = createList();
+  pushFront(lista, initial);
+  *cont = 0;
+
+  while (get_size(lista) > 0)
+  {
+    (*cont)++;
+    Node* siguiente = front(lista);
+    popFront(lista);
+    if (is_final(siguiente))
+    {
+      while (!is_empty(lista))
+      {
+        Node* aux = front(lista);
+        popFront(lista);
+        free(aux);
+      }
+      return siguiente;
+      
+    }
+  }
+  
   return NULL;
 }
 
