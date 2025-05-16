@@ -74,8 +74,31 @@ int is_valid(Node* n){
           seen[val] = 1;
         }
       }
+    }
+
+    for (int k = 0; k < 9; k++)
+    {
+      int seen[10]= {0};
+      int fila = 3 * (k/3);
+      int col = 3 * (k % 3);
+      for (int i = fila; i < fila; i++)
+      {
+        for (int j = col; j < col; j++)
+        {
+          int valor = n->sudo[i][j];
+          if (valor != 0)
+          {
+            if (seen[valor]) return 0;
+            seen[valor] = 1;
+            
+          }
+          /* code */
+        }
+        
+      }
       
     }
+    
 
     return 1;
 }
